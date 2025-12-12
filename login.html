@@ -1,0 +1,54 @@
+<? php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="design/login.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <h2 class="title">Login</h2>
+
+        <form id="loginForm">
+            <div class="input-box">
+                <input type="text" id="username" required>
+                <label>Username</label>
+            </div>
+
+            <div class="input-box">
+                <input type="password" id="password" required>
+                <label>Password</label>
+            </div>
+
+            <button class="login-btn" type="submit">Login</button>
+
+            <a href="#" class="forgot">Forgot Password?</a>
+        </form>
+    </div>
+
+    <script>
+        // Grab the form
+        const form = document.getElementById('loginForm');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Store username as ID in localStorage
+            localStorage.setItem('userID', username);
+
+            // Optionally, you can also store password (not recommended in plain text)
+            // localStorage.setItem('userPassword', password);
+
+            // Redirect to home1.html
+            window.location.href = 'home1.html';
+        });
+    </script>
+    ?>
+</body>
+</html>

@@ -1,0 +1,69 @@
+/* Background */
+body {
+    margin: 0;
+    padding: 0;
+    background: #000; /* solid black */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Container */
+.container {
+    text-align: center;
+    color: white;
+    animation: float 3s infinite ease-in-out;
+}
+
+/* Floating Animation */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Heading */
+.container h1 {
+    font-size: 45px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 15px #00aaff;
+    animation: glow 2s infinite alternate;
+}
+
+/* Glow effect */
+@keyframes glow {
+    from { text-shadow: 0 0 8px #00aaff; }
+    to { text-shadow: 0 0 25px #00aaff; }
+}
+
+/* Login Button */
+.login-btn {
+    display: inline-block;
+    padding: 12px 35px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #000;
+    text-decoration: none;
+    background: #00aaff;
+    border-radius: 8px;
+    transition: 0.3s ease;
+    box-shadow: 0 0 15px #00aaff;
+}
+
+/* Hover button effect */
+.login-btn:hover {
+    background: white;
+    color: #00aaff;
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #00aaff;
+}

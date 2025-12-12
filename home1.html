@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home 1</title>
+    <link rel="stylesheet" href="design/home1.css">
+</head>
+<body>
+   <!-- LOGO DIV -->
+    <div class="logo-container">
+        <img src="Images/logo.png" class="logo">
+    </div>
+
+    <!-- WELCOME BOX (overlaps the logo div) -->
+    <div class="welcome-box" id="welcomeBox"></div>
+
+    <script>
+        const userID = localStorage.getItem('userID');
+        const wb = document.getElementById('welcomeBox');
+
+        wb.innerHTML = userID 
+            ? `<h2>Welcome ${userID}</h2>` 
+            : `<h2>No user found. Please login first.</h2>`;
+    </script>
+
+
+
+    <!-- Slideshow Section -->
+    <div class="slider-container">
+        <div class="slides">
+            <img src="Images/1.jpg" class="slide active">
+            <img src="Images/2.jpg" class="slide">
+            <img src="Images/3.jpg" class="slide">
+            <img src="Images/4.jpg" class="slide">
+            <img src="Images/5.jpg" class="slide">
+            <img src="Images/6.jpg" class="slide">
+            <img src="Images/7.jpg" class="slide">
+            <img src="Images/8.jpg" class="slide">
+        </div>
+
+        <div class="slide-content">
+            <h2>Every Day is Learning Day</h2>
+            <p>Explore, Learn & Improve Security Skills</p>
+            <a href="about.html" class="collection-btn">See collection</a>
+        </div>
+    </div>
+
+
+
+
+<div class="animated-title">
+    <span class="static-text">Choose your </span>
+    <span class="typing-text" id="changingText"></span>
+    <span class="static-text"> Segment</span>
+</div>
+
+<script>
+const texts = [
+    "Authentication",
+    "Session",
+    "Business Logic",
+    "Critical Web Attacks",
+    "OS Command Injection",
+    "OTP Vulnerabilities",
+    "Security Misconfig",
+    "Cryptography"
+];
+
+let currentIndex = 0;
+let charIndex = 0;
+let lastTime = 0;
+let typingSpeed = 80;         // ms per character
+let changeDelay = 2000;       // wait between words
+let state = "typing";         // "typing" or "waiting"
+const changingText = document.getElementById("changingText");
+
+function animate(time) {
+    if (!lastTime) lastTime = time;
+    const delta = time - lastTime;
+
+    // Typing state
+    if (state === "typing" && delta >= typingSpeed) {
+        changingText.textContent += texts[currentIndex][charIndex];
+        charIndex++;
+        lastTime = time;
+
+        // Finished word → switch to waiting
+        if (charIndex === texts[currentIndex].length) {
+            state = "waiting";
+            lastTime = time;
+        }
+    }
+
+    // Waiting state
+    if (state === "waiting" && delta >= changeDelay) {
+        currentIndex = (currentIndex + 1) % texts.length;
+        changingText.textContent = "";
+        charIndex = 0;
+        state = "typing";
+        lastTime = time;
+    }
+
+    requestAnimationFrame(animate);
+}
+
+// Start animation
+requestAnimationFrame(animate);
+</script>
+
+
+
+    <div class="categories">
+
+        <a href="Main segments/Authentication/Authentication.html" class="cat-btn color1">Authentication</a>
+        <a href="Main segments/Session/Session.html" class="cat-btn color2">Session</a>
+        <a href="Main segments/BussinessLogic/BusinessLogic.html" class="cat-btn color3">Business Logic</a>
+        <a href="Main segments/Criticalwebattacks/CriticalWebAttacks.html" class="cat-btn color4">Critical Web Attacks</a>
+        <a href="Main segments/OSCommandInjection/OSCommandInjection.html" class="cat-btn color5">OS Command Injection</a>
+        <a href="Main segments/OTPVulnerabilities/OTPVulnerabilities.html" class="cat-btn color6">OTP Vulnerabilities</a>
+        <a href="Main segments/SecurityMisconfig/SecurityMisconfig.html" class="cat-btn color7">Security Misconfig</a>
+        <a href="Main segments/Cryptography/Cryptography.html" class="cat-btn color8">Cryptography</a>
+        <a href="Main segments/plaindosa/plaindosa.html" class="cat-btn color9">plaindosa</a>
+        <a href="Main segments/Masaladosa/masaladosa.html" class="cat-btn color10">masaladosa</a>
+        <a href="Main segments/Butterdosa/butterdosa.html" class="cat-btn color11">butterdosa</a>
+        <a href="Main segments/paneerdosa/" class="cat-btn color12">paneerdosa</a>
+
+    </div>
+    <div style="height: 100px;">
+       <!-- plain div-->
+    </div>
+
+   
+    
+
+    <!-- Footer -->
+    <footer>
+        © 2025 SKILLFORGEACADEMY. All rights reserved.
+    </footer>
+
+    <!-- JavaScript for Auto Slideshow -->
+    <script>
+        let index = 0;
+        const slides = document.querySelectorAll(".slide");
+
+        function autoSlide() {
+            slides.forEach(slide => slide.classList.remove("active"));
+            index = (index + 1) % slides.length;
+            slides[index].classList.add("active");
+        }
+
+        setInterval(autoSlide, 4000); // auto move every 3 seconds
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+/* Full page background */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000; /* solid black */
+    font-family: Arial, sans-serif;
+    color: white;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Login container */
+.login-container {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 0 20px #00aaff;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Floating effect */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+}
+
+/* Title */
+.title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #00aaff;
+    text-shadow: 0 0 10px #00aaff;
+}
+
+/* Input box styling */
+.input-box {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #00aaff;
+    font-size: 18px;
+    color: white;
+    transition: 0.4s;
+}
+
+.input-box label {
+    position: absolute;
+    left: 10px;
+    top: 12px;
+    color: #aaa;
+    pointer-events: none;
+    transition: 0.4s ease;
+}
+
+/* Floating label animation */
+.input-box input:focus + label,
+.input-box input:valid + label {
+    top: -10px;
+    font-size: 14px;
+    color: #00aaff;
+}
+
+/* Login button */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: #00aaff;
+    border: none;
+    outline: none;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: white;
+    color: #00aaff;
+    transform: scale(1.07);
+    box-shadow: 0 0 15px #00aaff;
+}
+
+/* Forgot password link */
+.forgot {
+    display: block;
+    margin-top: 15px;
+    color: #00aaff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.forgot:hover {
+    color: white;
+    text-shadow: 0 0 8px #00aaff;
+}
